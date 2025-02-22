@@ -17,8 +17,10 @@ export default function Index() {
   const colors = useThemeColors();
 
   const { data, isFetching } = useFetchQuery("?limit=12");
-
   const coffeeList = data ?? [];
+
+  // const { data, isFetching, fetchNextPage } = useInfinitFetchQuery("?limit=6");
+  // const coffeeList = data?.pages.flatMap((page) => page) ?? [];
 
   return (
     <SafeAreaView
@@ -41,8 +43,11 @@ export default function Index() {
           contentContainerStyle={[styles.gridGap, styles.list]}
           columnWrapperStyle={styles.gridGap}
           ListFooterComponent={
-            isFetching ? <ActivityIndicator color={colors.grayWhite} size={"large"} /> : null
+            isFetching ? (
+              <ActivityIndicator color={colors.grayWhite} size={"large"} />
+            ) : null
           }
+          // onEndReached={() => fetchNextPage()}
           renderItem={({ item }) => (
             <CoffeeCard
               id={item.id}
