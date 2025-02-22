@@ -1,6 +1,6 @@
 # Welcome to React Native Expo app 👋 - Coffee Store
 
-![Screenshot 2025-02-22 180917](https://github.com/user-attachments/assets/be1676d0-e998-43f5-bc6b-fef99ff214a8)
+![Screenshot 2025-02-22 183646](https://github.com/user-attachments/assets/6aa2d458-7d5d-42cb-8c10-d4facfb71b8f)
 
 This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
 
