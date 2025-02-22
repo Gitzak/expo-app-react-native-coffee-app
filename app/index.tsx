@@ -1,8 +1,10 @@
 import { Card } from "@/components/Card";
 import { CoffeeCard } from "@/components/Coffee/CoffeeCard";
 import { ThemedText } from "@/components/ThemedText";
+import { useFetchQuery } from "@/hooks/useFetchQuery";
 import { useThemeColors } from "@/hooks/useThemeColors";
 import {
+  ActivityIndicator,
   FlatList,
   Image,
   SafeAreaView,
@@ -14,10 +16,9 @@ import {
 export default function Index() {
   const colors = useThemeColors();
 
-  const data = Array.from({ length: 24 }, (_, k) => ({
-    id: k + 1,
-    name: "Coffee Name",
-  }));
+  const { data, isFetching } = useFetchQuery("?limit=12");
+
+  const coffeeList = data ?? [];
 
   return (
     <SafeAreaView
@@ -35,12 +36,20 @@ export default function Index() {
 
       <Card style={[styles.body, { backgroundColor: colors.tint }]}>
         <FlatList
-          data={data}
+          data={coffeeList}
           numColumns={2}
           contentContainerStyle={[styles.gridGap, styles.list]}
           columnWrapperStyle={styles.gridGap}
+          ListFooterComponent={
+            isFetching ? <ActivityIndicator color={colors.grayWhite} size={"large"} /> : null
+          }
           renderItem={({ item }) => (
-            <CoffeeCard id={item.id} name={item.name} style={{ flex: 1 / 2 }} />
+            <CoffeeCard
+              id={item.id}
+              name={item.name}
+              image_url={item.image_url}
+              style={{ flex: 1 / 2 }}
+            />
           )}
           keyExtractor={(item) => item.id.toString()}
         />

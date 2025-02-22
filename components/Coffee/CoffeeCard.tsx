@@ -7,9 +7,10 @@ type Props = {
   style: ViewStyle;
   id: number;
   name: string;
+  image_url: string;
 };
 
-export function CoffeeCard({ style, id, name }: Props) {
+export function CoffeeCard({ style, id, name, image_url }: Props) {
   const colors = useThemeColors();
   return (
     <Card style={[style, styles.card, { backgroundColor: colors.grayWhite }]}>
@@ -20,11 +21,7 @@ export function CoffeeCard({ style, id, name }: Props) {
       >
         #{id.toString().padStart(3, "0")}
       </ThemedText>
-      <Image
-        source={{ uri: "https://iili.io/H8Y78Qt.webp" }}
-        width={190}
-        height={190}
-      />
+      <Image source={{ uri: image_url }} width={190} height={190} />
       <ThemedText
         style={{ alignSelf: "flex-start" }}
         variant="subtitle1"

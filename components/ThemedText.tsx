@@ -18,8 +18,8 @@ const styles = StyleSheet.create({
   },
   subtitle1: {
     fontSize: 18,
-    lineHeight: 18,
-    fontWeight: "bold",
+    lineHeight: 20,
+    fontWeight: "400",
   },
   subtitle2: {
     fontSize: 12,
