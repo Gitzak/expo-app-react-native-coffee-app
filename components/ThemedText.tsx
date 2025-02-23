@@ -3,6 +3,15 @@ import { useThemeColors } from "@/hooks/useThemeColors";
 import { StyleSheet, Text, TextProps } from "react-native";
 
 const styles = StyleSheet.create({
+  body1: {
+    fontSize: 18,
+    lineHeight: 20,
+    fontWeight: 400,
+  },
+  body2: {
+    fontSize: 16,
+    lineHeight: 16,
+  },
   body3: {
     fontSize: 10,
     lineHeight: 16,

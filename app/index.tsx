@@ -32,7 +32,7 @@ export default function Index() {
           style={styles.image}
         />
         <ThemedText variant="headline" color="tint">
-          Coffee Shop
+          Coffee Store
         </ThemedText>
       </View>
 
